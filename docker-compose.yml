@@ -1,0 +1,11 @@
+version: "3"
+services: 
+  gas:
+    build: .
+    volumes:
+      - .:/workspace
+      - nodemodules:/workspace/node_modules
+    command: /bin/sh -c "while sleep 1000; do :; done"
+volumes:
+    nodemodules:
+        driver: "local"
