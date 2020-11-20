@@ -1,6 +1,8 @@
 # Google Apps Script開発コンテナ
 Visual Studio CodeのDevContainer内でTypeScriptを使って快適にGAS開発をしたい。
 
+## 使用方法
+
 1. build container
 
     プロジェクトルートフォルダをVisual Studio Code開き、画面左下の><ボタンかコマンドパレットから`Remote-Containers: Open Folder in container`を選択してビルド開始する。
@@ -11,7 +13,7 @@ Visual Studio CodeのDevContainer内でTypeScriptを使って快適にGAS開発�
     ```
     clasp login --no-localhost
     ```
-    画面の支持に従ってGoogleにログインする。
+    画面の指示に従ってGoogleにログインする。
 
 1. create project
 
@@ -19,6 +21,19 @@ Visual Studio CodeのDevContainer内でTypeScriptを使って快適にGAS開発�
     ```
     clasp create --title <Project Title> --type <standalone | sheets | froms | ...> --rootDir ./src
     ```
+    - Project Title: GASプロジェクト名とSheetsを使う場合のSheetsファイル名になる。
+
+
+
+
+- update project
+
+    Google Apps Scriptに反映するには、以下のコマンドを実行する。
+    ```
+    clasp push
+    ```
+
+## おまけ
 
 - node.jsからの移植ライブラリを使用する。
 
