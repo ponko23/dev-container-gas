@@ -2,9 +2,11 @@
 Visual Studio CodeのDevContainer内でTypeScriptを使って快適にGAS開発をしたい。
 
 1. build container
+
     プロジェクトルートフォルダをVisual Studio Code開き、画面左下の><ボタンかコマンドパレットから`Remote-Containers: Open Folder in container`を選択してビルド開始する。
 
 1. login
+
     ビルドが終わったら新しくターミナルを開き以下のコマンドを実行する。
     ```
     clasp login --no-localhost
@@ -12,12 +14,14 @@ Visual Studio CodeのDevContainer内でTypeScriptを使って快適にGAS開発�
     画面の支持に従ってGoogleにログインする。
 
 1. create project
+
     新しくGoogle Apps Scriptプロジェクトを作成する場合は以下のコマンドを実行する。
     ```
     clasp create --title <Project Title> --type <standalone | sheets | froms | ...> --rootDir ./src
     ```
 
 - node.jsからの移植ライブラリを使用する。
+
     ex.cheerioの場合
     1. src/appsscript.jsonのdependenciesにGASライブラリを追加する。
         ```
@@ -45,9 +49,13 @@ Visual Studio CodeのDevContainer内でTypeScriptを使って快適にGAS開発�
         import * as Cheerio from "cheerio"
         ```
         ※ ローカルで開いている時はnode_modules内が空の為、エラーになっているが気にしない。
+        
         ※ GASライブラリの名前と合わせる必要がある。
 
     ※ 型定義ファイルとimportはgsファイルへの変換時に無視される。
+    
     ※ 残ったライブラリ使用箇所はGASライブラリへの参照として実行される。
+    
     ※ index.d.tsファイルが残ってしまうので.claspignoreに指定して除外する。
+    
     ※ interfaceが異なったり、Promiseを使用しているライブラリは動かない
