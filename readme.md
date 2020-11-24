@@ -23,15 +23,14 @@ Visual Studio CodeのDevContainer内でTypeScriptを使って快適にGAS開発�
     ```
     - Project Title: GASプロジェクト名とSheetsを使う場合のSheetsファイル名になる。
 
-
-
-
 - update project
 
     Google Apps Scriptに反映するには、以下のコマンドを実行する。
     ```
     clasp push
     ```
+
+    ※ push時、同じ名前のファイル（拡張子がtsとjsで違うだけ）があるとエラーとなるので、.claspignoreに*.jsを指定しておく
 
 ## おまけ
 
@@ -74,3 +73,9 @@ Visual Studio CodeのDevContainer内でTypeScriptを使って快適にGAS開発�
     ※ index.d.tsファイルが残ってしまうので.claspignoreに指定して除外する。
     
     ※ interfaceが異なったり、Promiseを使用しているライブラリは動かない
+
+- private関数にする
+
+    functionをそのまま定義するとマクロ、スクリプトエディタ上から直接実行可能になる。
+
+    プライベイト関数としたい場合は関数名の末尾に「_」をつける。

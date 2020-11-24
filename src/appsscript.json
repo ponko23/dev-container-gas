@@ -1,12 +1,30 @@
 {
   "timeZone": "America/New_York",
   "dependencies": {
-    "libraries": [{
-      "userSymbol": "Cheerio",
-      "libraryId": "1ReeQ6WO8kKNxoaA_O0XEQ589cIrRvEBA9qcWpNqdOP17i47u6N9M5Xh0",
-      "version": "12"
-    }]
+    "libraries": [
+      {
+        "userSymbol": "Cheerio",
+        "libraryId": "1ReeQ6WO8kKNxoaA_O0XEQ589cIrRvEBA9qcWpNqdOP17i47u6N9M5Xh0",
+        "version": "12"
+      }
+    ]
+  },
+  "webapp": {
+    "access": "ANYONE_ANONYMOUS",
+    "executeAs": "USER_DEPLOYING"
   },
   "exceptionLogging": "STACKDRIVER",
-  "runtimeVersion": "V8"
+  "runtimeVersion": "V8",
+  "sheets": {
+    "macros": [
+      {
+        "menuName": "fixDataRage",
+        "functionName": "fixDataRage"
+      },
+      {
+        "menuName": "upadtePropertyJsonData",
+        "functionName": "upadtePropertyJsonData"
+      }
+    ]
+  }
 }

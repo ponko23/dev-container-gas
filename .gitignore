@@ -1,4 +1,5 @@
 .clasp.json
+.clasprc.json
 
 # Logs
 logs

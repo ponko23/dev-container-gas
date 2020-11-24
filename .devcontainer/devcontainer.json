@@ -6,12 +6,15 @@
 	"service": "gas",
 	"workspaceFolder": "/workspace",
 	"extensions": [
-    	"vivaxy.vscode-conventional-commits",
+		"vivaxy.vscode-conventional-commits",
 		"dbaeumer.vscode-eslint",
 		"ms-vscode.vscode-typescript-tslint-plugin",
 		"ms-azuretools.vscode-docker",
 		"eamodio.gitlens",
-    	"esbenp.prettier-vscode"
+		"esbenp.prettier-vscode"
 	],
+	"settings": {
+		"editor.formatOnSave": true
+	},
 	"postCreateCommand": "yarn global add @google/clasp; yarn add --dev @types/google-apps-script @types/cheerio",
 }
