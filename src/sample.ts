@@ -26,7 +26,7 @@ function scrapeSapmle() {
         </body>
     </html>`
   const $ = Cheerio.load(html)
-  const results = $('ul li')
+  const results: Sample[] = $('ul li')
     .toArray()
     .map((element, i) => {
       const value = $(element).text()

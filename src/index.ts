@@ -3,7 +3,10 @@
  * queryparameterにsは必須。
  * @param e
  */
-function doGet(e: GoogleAppsScript.Events.AppsScriptHttpRequestEvent) {
+'inc'
+function doGet(
+  e: GoogleAppsScript.Events.AppsScriptHttpRequestEvent
+): GoogleAppsScript.Content.TextOutput {
   try {
     const sheetKey = e.parameter['s']
     if (!sheetKey) throw new Error('parameter "s" is required.')
@@ -25,9 +28,9 @@ function doGet(e: GoogleAppsScript.Events.AppsScriptHttpRequestEvent) {
 }
 
 /**
- * 現在アクティブなシート名が*_editedの時、対応するjsonDataのキャッシュを更新する
+ * 現在アクティブなシート名が「*_edited」の時、対応するJsonDataのキャッシュを更新する
  */
-function upadtePropertyJsonData() {
+function upadtePropertyJsonData(): void {
   const sheet = SpreadsheetApp.getActive().getActiveSheet()
   const sheetName = sheet.getSheetName()
   if (!sheetName.indexOf('_edited')) return
@@ -54,7 +57,7 @@ function upadtePropertyJsonData() {
  * シートから余分な行列を削除する
  * @param sheetName
  */
-function fixDataRage(sheetName: string) {
+function fixDataRage(sheetName: string): void {
   const sheet = sheetName
     ? SpreadsheetApp.getActive().getSheetByName(sheetName)
     : SpreadsheetApp.getActive().getActiveSheet()
@@ -106,7 +109,7 @@ function getDataFromEditedSheet_(sheetKey: string): string {
  * @param sheetKey
  * @param data
  */
-function updateAllRows_<T>(sheetKey: string, data: T[]) {
+function updateAllRows_<T>(sheetKey: string, data: T[]): void {
   const propertyNames = Object.getOwnPropertyNames(data[0])
   let setItems = [propertyNames].concat(
     data.map((item) => {
@@ -137,7 +140,7 @@ function updateAllRows_<T>(sheetKey: string, data: T[]) {
  * @param sheetKey
  * @param data
  */
-function addRows_<T>(sheetKey: string, data: T[] | T) {
+function addRows_<T>(sheetKey: string, data: T[] | T): void {
   const sourceArray = Array.isArray(data) ? data : [data]
   const sheet = SpreadsheetApp.getActive().getSheetByName(`${sheetKey}_scraped`)
   const values = sheet.getDataRange().getValues()
