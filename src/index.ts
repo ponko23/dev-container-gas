@@ -1,9 +1,10 @@
+const baseUrl = ''
+
 /**
  * 外部からのリクエスト対してjsonでデータを返す。
  * queryparameterにsは必須。
  * @param e
  */
-'inc'
 function doGet(
   e: GoogleAppsScript.Events.AppsScriptHttpRequestEvent
 ): GoogleAppsScript.Content.TextOutput {
@@ -161,3 +162,12 @@ function addRows_<T>(sheetKey: string, data: T[] | T): void {
     )
     .setValues(setItems)
 }
+
+const common = {
+  baseUrl,
+  updateAllRows_,
+  addRows_,
+  getDataFromEditedSheet_,
+}
+
+export default common

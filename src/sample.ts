@@ -1,4 +1,5 @@
 import * as Cheerio from 'cheerio'
+import common from './index'
 
 const sampleKey = 'sample'
 
@@ -36,5 +37,5 @@ function scrapeSapmle() {
       }
     })
 
-  updateAllRows_(sampleKey, results)
+  common.updateAllRows_(sampleKey, results)
 }
